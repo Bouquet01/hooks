@@ -1,9 +1,9 @@
 import React from 'react'
 import { useCounter, useFetch } from '../hooks'
-import { LoadingMessage } from './LoadingMessage';
-import { PokemonCard } from './PokemonCard';
+import { LoadingMessage } from '../03-examples/LoadingMessage';
+import { PokemonCard } from '../03-examples/PokemonCard';
 
-export const MultipleCustomHooks = () => {
+export const Layout = () => {
 
   const { counter, decrement, increment } = useCounter(149);
   const { data, hasError, isLoading } = useFetch(`https://pokeapi.co/api/v2/pokemon/${counter}`);
@@ -30,7 +30,7 @@ export const MultipleCustomHooks = () => {
 
       {/* <pre>{ JSON.stringify(data,null,2)}</pre> */}
 
-      <h1>{data?.name}</h1>
+      <h1>{data?.name.toUpperCase()}</h1>
 
       <button className='btn btn-primary my-2' onClick={() => counter > 1 ? decrement() : null} >Anterior</button>
       <button className='btn btn-primary my-2' onClick={() => increment()}>siguente</button>
