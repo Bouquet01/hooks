@@ -3,61 +3,61 @@ import { Message } from './Message';
 
 export const SimpleForm = () => {
 
-    const [formState,setFormState]= useState({
+    const [formState, setFormState] = useState({
         username: 'strider',
         email: 'ejemplo@ejemplo.com'
     });
 
-    const{ username, email} = formState;
+    const { username, email } = formState;
 
-    const onInputChange = ({target}) =>{
-        const {name, value}= target;
+    const onInputChange = ({ target }) => {
+        const { name, value } = target;
         setFormState({
             ...formState,
-            [name]:value
+            [name]: value
         });
 
     }
 
-    useEffect( () =>{
+    useEffect(() => {
         // console.log('useEffect called!')
     }, []);
 
-    useEffect( () =>{
+    useEffect(() => {
         // console.log('formState changed')
     }, [formState]);
-    useEffect( () =>{
+    useEffect(() => {
         // console.log('email changed')
     }, [email]);
-    
 
 
-  return (
-    <>
-      <h1>Formulario Simple</h1>
-      <hr />
+
+    return (
+        <>
+            <h1>Formulario Simple</h1>
+            <hr />
             <input
-            type="text"
-            className='form-control'
-            placeholder='Username'
-            name='username'
-            value={username}
-            onChange ={onInputChange}
+                type="text"
+                className='form-control'
+                placeholder='Username'
+                name='username'
+                value={username}
+                onChange={onInputChange}
             />
             <input
-            type="email"
-            className='form-control mt-2'
-            placeholder='ejemplo@ejemplo.com'
-            name='email'
-            value={email}
-            onChange ={onInputChange}
+                type="email"
+                className='form-control mt-2'
+                placeholder='ejemplo@ejemplo.com'
+                name='email'
+                value={email}
+                onChange={onInputChange}
             />
-        
-        {
-            (username === 'strider2') &&<Message/>
-        }
-    </>
-  )
+
+            {
+                (username === 'strider2') && <Message />
+            }
+        </>
+    )
 }
 
 
